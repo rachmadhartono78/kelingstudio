@@ -10,8 +10,9 @@
 
     const cfg = {
 
-        // MailChimp URL
-        mailChimpURL : 'https://gmail.us8.list-manage.com/subscribe/post?u=0372f416821b8680ad7ce7df2&amp;id=d94694ee65&amp;f_id=001f16e1f0'
+        // Email service endpoint (using FormSubmit.co - free service)
+        // To change: replace with your email or use alternative service
+        formSubmitEmail : 'kelingstudio@gmail.com'
 
     };
 
@@ -388,7 +389,7 @@
     };
 
 
-   /* mailchimp form
+   /* newsletter form
     * ---------------------------------------------------- */ 
     const ssMailChimpForm = function() {
 
@@ -396,7 +397,7 @@
 
         if (!mcForm) return;
 
-        // Add novalidate attribute
+        // Add novalidate attribute for custom validation
         mcForm.setAttribute('novalidate', true);
 
         // Field validation
@@ -450,74 +451,28 @@
 
         };
 
-        // Display form status (callback function for JSONP)
-        window.displayMailChimpStatus = function (data) {
-
-            // Make sure the data is in the right format and that there's a status container
-            if (!data.result || !data.msg || !mcStatus ) return;
-
-            // Update our status message
-            mcStatus.innerHTML = data.msg;
-
-            // If error, add error class
-            if (data.result === 'error') {
-                mcStatus.classList.remove('success-message');
-                mcStatus.classList.add('error-message');
-                return;
-            }
-
-            // Otherwise, add success class
-            mcStatus.classList.remove('error-message');
-            mcStatus.classList.add('success-message');
-        };
-
-        // Submit the form 
-        function submitMailChimpForm(form) {
-
-            let url = cfg.mailChimpURL;
-            let emailField = form.querySelector('#mce-EMAIL');
-            let serialize = '&' + encodeURIComponent(emailField.name) + '=' + encodeURIComponent(emailField.value);
-
-            if (url == '') return;
-
-            url = url.replace('/post?u=', '/post-json?u=');
-            url += serialize + '&c=displayMailChimpStatus';
-
-            // Create script with url and callback (if specified)
-            var ref = window.document.getElementsByTagName( 'script' )[ 0 ];
-            var script = window.document.createElement( 'script' );
-            script.src = url;
-
-            // Create global variable for the status container
-            window.mcStatus = form.querySelector('.mc-status');
-            window.mcStatus.classList.remove('error-message', 'success-message')
-            window.mcStatus.innerText = 'Submitting...';
-
-            // Insert script tag into the DOM
-            ref.parentNode.insertBefore( script, ref );
-
-            // After the script is loaded (and executed), remove it
-            script.onload = function () {
-                this.remove();
-            };
-
-        };
-
         // Check email field on submit
         mcForm.addEventListener('submit', function (event) {
-
-            event.preventDefault();
 
             let emailField = event.target.querySelector('#mce-EMAIL');
             let error = hasError(emailField);
 
             if (error) {
+                event.preventDefault();
                 showError(emailField, error);
                 emailField.focus();
                 return;
             }
 
-            submitMailChimpForm(this);
+            // Show submitting message
+            let statusMessage = this.querySelector('.mc-status');
+            if (statusMessage) {
+                statusMessage.classList.remove('error-message', 'success-message');
+                statusMessage.innerText = 'Submitting...';
+            }
+
+            // Form will submit naturally to FormSubmit.co
+            // No need to prevent default or use JSONP anymore
 
         }, false);
 
