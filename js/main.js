@@ -636,6 +636,109 @@
     }; // end ssSmoothScroll
 
 
+   /* dark mode toggle
+    * ---------------------------------------------------- */
+    const ssDarkMode = function() {
+
+        const themeToggle = document.getElementById('theme-toggle');
+        if (!themeToggle) return;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        themeToggle.addEventListener('click', function() {
+            let theme = document.documentElement.getAttribute('data-theme');
+            
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+    }; // end ssDarkMode
+
+
+   /* stats counter animation
+    * ---------------------------------------------------- */
+    const ssStatsCounter = function() {
+
+        const counters = document.querySelectorAll('.stats-counter');
+        if (!counters.length) return;
+
+        let animated = false;
+
+        const animateCounters = function() {
+            if (animated) return;
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const span = counter.querySelector('span');
+                const increment = target / 100;
+                let current = 0;
+
+                const updateCounter = function() {
+                    current += increment;
+                    if (current < target) {
+                        span.textContent = Math.ceil(current) + '+';
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        if (target === 100) {
+                            span.textContent = target + '%';
+                        } else {
+                            span.textContent = target + '+';
+                        }
+                    }
+                };
+
+                updateCounter();
+            });
+
+            animated = true;
+        };
+
+        // Trigger animation when stats section is in viewport
+        const statsSection = document.querySelector('.stats-counter');
+        if (!statsSection) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(statsSection.closest('section'));
+
+    }; // end ssStatsCounter
+
+
+   /* portfolio item hover effect
+    * ---------------------------------------------------- */
+    const ssPortfolioHover = function() {
+
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        if (!portfolioItems.length) return;
+
+        portfolioItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.boxShadow = '0 8px 30px var(--shadow-hover, rgba(0,0,0,0.15))';
+            });
+
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 4px 20px var(--shadow-color, rgba(0,0,0,0.08))';
+            });
+        });
+
+    }; // end ssPortfolioHover
+
+
    /* Initialize
     * ------------------------------------------------------ */
     (function ssInit() {
@@ -650,6 +753,9 @@
         ssMailChimpForm();
         ssAlertBoxes();
         ssSmoothScroll();
+        ssDarkMode();
+        ssStatsCounter();
+        ssPortfolioHover();
 
     })();
 

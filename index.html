@@ -34,6 +34,185 @@
     ================================================== -->
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Dark Mode Styles -->
+    <style>
+        /* Dark Mode Variables */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f8f8;
+            --bg-tertiary: #ffffff;
+            --text-primary: #151515;
+            --text-secondary: #666666;
+            --text-tertiary: #999999;
+            --border-color: #e8e8e8;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --shadow-hover: rgba(0, 0, 0, 0.12);
+            --accent-gold: #d4af37;
+            --card-bg: #ffffff;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #121212;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #e8e8e8;
+            --text-secondary: #b8b8b8;
+            --text-tertiary: #888888;
+            --border-color: #2a2a2a;
+            --shadow-color: rgba(255, 255, 255, 0.05);
+            --shadow-hover: rgba(255, 255, 255, 0.08);
+            --accent-gold: #d4af37;
+            --card-bg: #1a1a1a;
+        }
+        
+        /* Apply dark mode colors */
+        [data-theme="dark"] body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+        
+        [data-theme="dark"] .s-pagewrap {
+            background-color: var(--bg-primary);
+        }
+        
+        [data-theme="dark"] .s-header {
+            background-color: var(--bg-secondary);
+            border-bottom-color: var(--border-color);
+        }
+        
+        [data-theme="dark"] .header-nav__links a {
+            color: var(--text-primary);
+        }
+        
+        [data-theme="dark"] .s-intro,
+        [data-theme="dark"] .s-about,
+        [data-theme="dark"] .s-menu,
+        [data-theme="dark"] .s-testimonials,
+        [data-theme="dark"] .s-footer {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+        
+        [data-theme="dark"] #pricing {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] .text-display-title,
+        [data-theme="dark"] h1, [data-theme="dark"] h2, 
+        [data-theme="dark"] h3, [data-theme="dark"] h4 {
+            color: var(--text-primary);
+        }
+        
+        [data-theme="dark"] p {
+            color: var(--text-secondary);
+        }
+        
+        [data-theme="dark"] .btn--stroke {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+        }
+        
+        [data-theme="dark"] .btn--stroke:hover {
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+        }
+        
+        [data-theme="dark"] .menu-list__item {
+            border-bottom-color: var(--border-color);
+        }
+        
+        [data-theme="dark"] .testimonials-slider__slide {
+            background-color: var(--card-bg);
+            box-shadow: 0 4px 20px var(--shadow-color);
+        }
+        
+        [data-theme="dark"] .s-footer {
+            border-top-color: var(--border-color);
+        }
+        
+        [data-theme="dark"] input,
+        [data-theme="dark"] textarea {
+            background-color: var(--bg-tertiary);
+            border-color: var(--border-color);
+            color: var(--text-primary);
+        }
+        
+        [data-theme="dark"] ::placeholder {
+            color: var(--text-tertiary);
+        }
+        
+        /* Dark mode toggle button */
+        .theme-toggle {
+            background: transparent;
+            border: 2px solid var(--text-primary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-right: 1rem;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+        
+        .theme-toggle:hover {
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            transform: rotate(180deg);
+        }
+        
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-primary);
+        }
+        
+        .theme-toggle:hover svg {
+            stroke: #ffffff;
+        }
+        
+        .theme-toggle .moon-icon {
+            display: none;
+        }
+        
+        [data-theme="dark"] .theme-toggle .sun-icon {
+            display: none;
+        }
+        
+        [data-theme="dark"] .theme-toggle .moon-icon {
+            display: block;
+        }
+        
+        /* Smooth transition for theme change */
+        body,
+        .s-pagewrap,
+        .s-header,
+        .btn--stroke {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        /* Pricing cards in dark mode */
+        [data-theme="dark"] #pricing > div > div > div > div {
+            background-color: var(--card-bg) !important;
+            box-shadow: 0 4px 20px var(--shadow-color) !important;
+        }
+        
+        [data-theme="dark"] #pricing > div > div > div > div:hover {
+            box-shadow: 0 8px 30px var(--shadow-hover) !important;
+        }
+        
+        [data-theme="dark"] #pricing ul li {
+            border-bottom-color: var(--border-color) !important;
+        }
+        
+        /* Professional package stays gold in both modes */
+        #pricing > div > div:nth-child(2) > div {
+            background: linear-gradient(135deg, #d4af37 0%, #c9a02f 100%) !important;
+        }
+    </style>
 
     <!-- favicons
     ================================================== -->
@@ -88,14 +267,30 @@
             
                 <nav class="header-nav">    
                     <ul class="header-nav__links">
-                        <li class="current"><a class="smoothscroll" href="#intro">Intro</a></li>
+                        <li class="current"><a class="smoothscroll" href="#intro">Home</a></li>
                         <li><a class="smoothscroll" href="#about">About</a></li>
                         <li><a class="smoothscroll" href="#menu">Services</a></li>
                         <li><a class="smoothscroll" href="#pricing">Pricing</a></li>
-                        <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
+                        <li><a class="smoothscroll" href="#portfolio">Portfolio</a></li>
                     </ul> <!-- end header-nav__links -->  
                     
                     <div class="header-contact">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
                     <a href="https://wa.me/6285142965211" class="header-contact__num btn" target="_blank" rel="noopener noreferrer">
                         <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" width="24" height="24" color="#000000">
                             <defs>
@@ -195,7 +390,7 @@
                 <div class="column xl-4 lg-5 md-12 s-about__content-start">
 
                     <div class="section-header" data-num="01">
-                        <h2 class="text-display-title">Our Story</h2>
+                        <h2 class="text-display-title">About Keling Studio</h2>
                     </div>  
 
                     <figure class="about-pic-primary">
@@ -229,6 +424,88 @@
         </section> <!-- end s-about -->   
 
 
+        <!-- # stats/metrics
+        ================================================== -->
+        <section class="container" style="padding: 4rem 0; background: linear-gradient(135deg, #d4af37 0%, #c9a02f 100%);">
+            
+            <div class="row">
+                <div class="column xl-12 u-text-center" style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 2rem; color: white; font-weight: 600; margin-bottom: 0.5rem;">
+                        Trusted by Businesses Across Southeast Asia
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 1.125rem;">
+                        Numbers that speak for our commitment to excellence
+                    </p>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 2rem;">
+                
+                <!-- Stat 1 -->
+                <div class="column xl-3 lg-6 md-6" style="text-align: center; margin-bottom: 2rem;">
+                    <div class="stats-counter" data-target="50">
+                        <span style="font-size: 3.5rem; font-weight: bold; color: white; display: block; line-height: 1;">50+</span>
+                    </div>
+                    <p style="color: white; font-size: 1.125rem; margin-top: 0.5rem; font-weight: 500;">
+                        Projects Completed
+                    </p>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="column xl-3 lg-6 md-6" style="text-align: center; margin-bottom: 2rem;">
+                    <div class="stats-counter" data-target="40">
+                        <span style="font-size: 3.5rem; font-weight: bold; color: white; display: block; line-height: 1;">40+</span>
+                    </div>
+                    <p style="color: white; font-size: 1.125rem; margin-top: 0.5rem; font-weight: 500;">
+                        Happy Clients
+                    </p>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="column xl-3 lg-6 md-6" style="text-align: center; margin-bottom: 2rem;">
+                    <div class="stats-counter" data-target="4">
+                        <span style="font-size: 3.5rem; font-weight: bold; color: white; display: block; line-height: 1;">4+</span>
+                    </div>
+                    <p style="color: white; font-size: 1.125rem; margin-top: 0.5rem; font-weight: 500;">
+                        Years Experience
+                    </p>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="column xl-3 lg-6 md-6" style="text-align: center; margin-bottom: 2rem;">
+                    <div class="stats-counter" data-target="100">
+                        <span style="font-size: 3.5rem; font-weight: bold; color: white; display: block; line-height: 1;">100%</span>
+                    </div>
+                    <p style="color: white; font-size: 1.125rem; margin-top: 0.5rem; font-weight: 500;">
+                        Client Satisfaction
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="row" style="margin-top: 3rem; border-top: 2px solid rgba(255,255,255,0.2); padding-top: 3rem;">
+                <div class="column xl-12 u-text-center">
+                    <p style="color: rgba(255,255,255,0.9); font-size: 1rem; margin-bottom: 1.5rem; font-weight: 500;">
+                        TECHNOLOGIES WE MASTER
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2rem;">
+                        <!-- Tech badges as text for now -->
+                        <span style="color: white; font-size: 1.125rem; font-weight: 600; opacity: 0.9;">React</span>
+                        <span style="color: white; font-size: 1.125rem; font-weight: 600; opacity: 0.9;">Vue.js</span>
+                        <span style="color: white; font-size: 1.125rem; font-weight: 600; opacity: 0.9;">Node.js</span>
+                        <span style="color: white; font-size: 1.125rem; font-weight: 600; opacity: 0.9;">Laravel</span>
+                        <span style="color: white; font-size: 1.125rem; font-weight: 600; opacity: 0.9;">WordPress</span>
+                        <span style="color: white; font-size: 1.125rem; font-weight: 600; opacity: 0.9;">Shopify</span>
+                        <span style="color: white; font-size: 1.125rem; font-weight: 600; opacity: 0.9;">Figma</span>
+                        <span style="color: white; font-size: 1.125rem; font-weight: 600; opacity: 0.9;">Adobe Suite</span>
+                    </div>
+                </div>
+            </div>
+
+        </section> <!-- end stats/metrics -->
+
+
         <!-- # menu
         ================================================== -->
         <section id="menu" class="container s-menu target-section">
@@ -240,25 +517,30 @@
                     <div class="section-header" data-num="02">
                         <h2 class="text-display-title">Our Services</h2>
                     </div>  
+                    
+                    <p style="margin: 1.5rem 0 2rem; color: var(--text-secondary, #666); font-size: 1.05rem; line-height: 1.6;">
+                        From concept to launch, we provide end-to-end digital solutions tailored to your business goals. 
+                        Let us handle the technology while you focus on growing your business.
+                    </p>
 
                     <nav class="tab-nav">
-                        <ul class="tab-nav__list"> 
+                        <ul class="tab-nav__list\"> 
                             <li>
                                 <a href="#tab-web-development">
-                                    <span>Web Development</span>
-                                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.523 18.787s4.501-4.505 6.255-6.26c.146-.146.219-.338.219-.53s-.073-.383-.219-.53c-1.753-1.754-6.255-6.258-6.255-6.258-.144-.145-.334-.217-.524-.217-.193 0-.385.074-.532.221-.293.292-.295.766-.004 1.056l4.978 4.978h-14.692c-.414 0-.75.336-.75.75s.336.75.75.75h14.692l-4.979 4.979c-.289.289-.286.762.006 1.054.148.148.341.222.533.222.19 0 .378-.072.522-.215z" fill-rule="nonzero"/></svg>
+                                    <span>💻 Web Development</span>
+                                    <svg clip-rule=\"evenodd\" fill-rule=\"evenodd\" stroke-linejoin=\"round\" stroke-miterlimit=\"2\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m14.523 18.787s4.501-4.505 6.255-6.26c.146-.146.219-.338.219-.53s-.073-.383-.219-.53c-1.753-1.754-6.255-6.258-6.255-6.258-.144-.145-.334-.217-.524-.217-.193 0-.385.074-.532.221-.293.292-.295.766-.004 1.056l4.978 4.978h-14.692c-.414 0-.75.336-.75.75s.336.75.75.75h14.692l-4.979 4.979c-.289.289-.286.762.006 1.054.148.148.341.222.533.222.19 0 .378-.072.522-.215z\" fill-rule=\"nonzero\"/></svg>
                                 </a>
                             </li>
                             <li>
                                 <a href="#tab-branding">
-                                    <span>Branding & Design</span>
-                                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.523 18.787s4.501-4.505 6.255-6.26c.146-.146.219-.338.219-.53s-.073-.383-.219-.53c-1.753-1.754-6.255-6.258-6.255-6.258-.144-.145-.334-.217-.524-.217-.193 0-.385.074-.532.221-.293.292-.295.766-.004 1.056l4.978 4.978h-14.692c-.414 0-.75.336-.75.75s.336.75.75.75h14.692l-4.979 4.979c-.289.289-.286.762.006 1.054.148.148.341.222.533.222.19 0 .378-.072.522-.215z" fill-rule="nonzero"/></svg>
+                                    <span>🎨 Branding & Design</span>
+                                    <svg clip-rule=\"evenodd\" fill-rule=\"evenodd\" stroke-linejoin=\"round\" stroke-miterlimit=\"2\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m14.523 18.787s4.501-4.505 6.255-6.26c.146-.146.219-.338.219-.53s-.073-.383-.219-.53c-1.753-1.754-6.255-6.258-6.255-6.258-.144-.145-.334-.217-.524-.217-.193 0-.385.074-.532.221-.293.292-.295.766-.004 1.056l4.978 4.978h-14.692c-.414 0-.75.336-.75.75s.336.75.75.75h14.692l-4.979 4.979c-.289.289-.286.762.006 1.054.148.148.341.222.533.222.19 0 .378-.072.522-.215z\" fill-rule=\"nonzero\"/></svg>
                                 </a>
                             </li>
                             <li>
                                 <a href="#tab-digital-marketing">
-                                    <span>Digital Marketing</span>
-                                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.523 18.787s4.501-4.505 6.255-6.26c.146-.146.219-.338.219-.53s-.073-.383-.219-.53c-1.753-1.754-6.255-6.258-6.255-6.258-.144-.145-.334-.217-.524-.217-.193 0-.385.074-.532.221-.293.292-.295.766-.004 1.056l4.978 4.978h-14.692c-.414 0-.75.336-.75.75s.336.75.75.75h14.692l-4.979 4.979c-.289.289-.286.762.006 1.054.148.148.341.222.533.222.19 0 .378-.072.522-.215z" fill-rule="nonzero"/></svg>
+                                    <span>📱 Digital Marketing</span>
+                                    <svg clip-rule=\"evenodd\" fill-rule=\"evenodd\" stroke-linejoin=\"round\" stroke-miterlimit=\"2\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m14.523 18.787s4.501-4.505 6.255-6.26c.146-.146.219-.338.219-.53s-.073-.383-.219-.53c-1.753-1.754-6.255-6.258-6.255-6.258-.144-.145-.334-.217-.524-.217-.193 0-.385.074-.532.221-.293.292-.295.766-.004 1.056l4.978 4.978h-14.692c-.414 0-.75.336-.75.75s.336.75.75.75h14.692l-4.979 4.979c-.289.289-.286.762.006 1.054.148.148.341.222.533.222.19 0 .378-.072.522-.215z\" fill-rule=\"nonzero\"/></svg>
                                 </a>
                             </li>
                         </ul>
@@ -504,6 +786,110 @@
         </section> <!-- end s-pricing -->
 
 
+        <!-- # portfolio/showcase
+        ================================================== -->
+        <section id="portfolio" class="container s-about target-section" style="padding-top: 6rem; padding-bottom: 6rem;">
+
+            <div class="row">
+                <div class="column xl-12">
+                    <div class="section-header u-text-center" data-num="04" style="margin-bottom: 2rem;">
+                        <h2 class="text-display-title">Our Work</h2>
+                        <p style="max-width: 800px; margin: 1rem auto 0; font-size: 1.125rem; color: #666;">
+                            We've helped businesses transform digitally. Here are some of our recent projects and success stories.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3rem;">
+                
+                <!-- Project 1 -->
+                <div class="column xl-4 lg-6 md-12" style="margin-bottom: 3rem;">
+                    <div class="portfolio-item" style="background: var(--card-bg, #fff); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px var(--shadow-color, rgba(0,0,0,0.08)); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <div style="height: 240px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" style="opacity: 0.9;">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <div style="padding: 2rem;">
+                            <h4 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-primary, #151515);">E-Commerce Platform</h4>
+                            <p style="color: var(--text-secondary, #666); margin-bottom: 1rem; font-size: 0.95rem;">
+                                Complete online store with payment gateway, inventory management, and admin dashboard.
+                            </p>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+                                <span style="background: #f0f0f0; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; color: #666;">React</span>
+                                <span style="background: #f0f0f0; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; color: #666;">Node.js</span>
+                                <span style="background: #f0f0f0; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; color: #666;">MongoDB</span>
+                            </div>
+                            <p style="color: #d4af37; font-weight: 600; font-size: 0.95rem;">📈 +150% Sales Increase</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="column xl-4 lg-6 md-12" style="margin-bottom: 3rem;">
+                    <div class="portfolio-item" style="background: var(--card-bg, #fff); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px var(--shadow-color, rgba(0,0,0,0.08)); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <div style="height: 240px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" style="opacity: 0.9;">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <polyline points="2 17 12 22 22 17"></polyline>
+                                <polyline points="2 12 12 17 22 12"></polyline>
+                            </svg>
+                        </div>
+                        <div style="padding: 2rem;">
+                            <h4 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-primary, #151515);">Restaurant Management System</h4>
+                            <p style="color: var(--text-secondary, #666); margin-bottom: 1rem; font-size: 0.95rem;">
+                                POS system with online ordering, kitchen display, and real-time analytics dashboard.
+                            </p>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+                                <span style="background: #f0f0f0; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; color: #666;">Vue.js</span>
+                                <span style="background: #f0f0f0; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; color: #666;">Laravel</span>
+                                <span style="background: #f0f0f0; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; color: #666;">MySQL</span>
+                            </div>
+                            <p style="color: #d4af37; font-weight: 600; font-size: 0.95rem;">⚡ 80% Faster Operations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="column xl-4 lg-12 md-12" style="margin-bottom: 3rem;">
+                    <div class="portfolio-item" style="background: var(--card-bg, #fff); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px var(--shadow-color, rgba(0,0,0,0.08)); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <div style="height: 240px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" style="opacity: 0.9;">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div style="padding: 2rem;">
+                            <h4 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-primary, #151515);">Corporate Branding Package</h4>
+                            <p style="color: var(--text-secondary, #666); margin-bottom: 1rem; font-size: 0.95rem;">
+                                Complete brand identity including logo, guidelines, social media kit, and website.
+                            </p>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+                                <span style="background: #f0f0f0; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; color: #666;">Design</span>
+                                <span style="background: #f0f0f0; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; color: #666;">Figma</span>
+                                <span style="background: #f0f0f0; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; color: #666;">AI</span>
+                            </div>
+                            <p style="color: #d4af37; font-weight: 600; font-size: 0.95rem;">🎨 +200% Brand Recognition</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row" style="margin-top: 2rem;">
+                <div class="column xl-12 u-text-center">
+                    <a href="https://wa.me/6285142965211?text=Hi,%20I'd%20like%20to%20see%20more%20of%20your%20portfolio" class="btn btn--stroke" target="_blank" rel="noopener noreferrer" style="padding: 1rem 2.5rem;">
+                        View More Projects
+                    </a>
+                </div>
+            </div>
+
+        </section> <!-- end s-portfolio -->
+
+
         <!-- # testimonials
         ================================================== -->
         <section id="testimonials" class="container s-testimonials">
@@ -511,7 +897,9 @@
             <div class="row s-testimonials__content">
             <div class="column xl-12">
 
-                <h3 class="testimonials-title u-text-center">What Our Clients Say</h3>
+                <div class="section-header u-text-center" data-num="05" style="margin-bottom: 3rem;">
+                    <h2 class="text-display-title">Client Success Stories</h2>
+                </div>
 
                 <div class="swiper-container testimonials-slider">    
                 <div class="swiper-wrapper">
