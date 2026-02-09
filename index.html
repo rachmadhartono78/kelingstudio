@@ -35,182 +35,365 @@
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/styles.css">
     
-    <!-- Dark Mode Styles -->
+    <!-- Modern Design System with Dark Mode & prefers-color-scheme -->
     <style>
-        /* Dark Mode Variables */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+        /* Modern Theme Variables - Light Mode (Default) */
         :root {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8f8f8;
-            --bg-tertiary: #ffffff;
-            --text-primary: #151515;
-            --text-secondary: #666666;
-            --text-tertiary: #999999;
-            --border-color: #e8e8e8;
-            --shadow-color: rgba(0, 0, 0, 0.08);
-            --shadow-hover: rgba(0, 0, 0, 0.12);
-            --accent-gold: #d4af37;
+            /* Light Mode Colors */
+            --bg-primary: #fafafa;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f5f5f5;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-tertiary: #9ca3af;
+            --text-invert: #ffffff;
+            
+            /* Accent Colors - Modern Palette */
+            --accent-primary: #6366f1;
+            --accent-secondary: #00d9ff;
+            --accent-tertiary: #a855f7;
+            --accent-gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            
+            /* UI Colors */
+            --border-color: #e5e7eb;
             --card-bg: #ffffff;
+            --input-bg: #ffffff;
+            --input-border: #e5e7eb;
+            
+            /* Shadow System */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            
+            /* Typography */
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
-        
+
+        /* Dark Mode - Using prefers-color-scheme + data-theme fallback */
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg-primary: #0f0f0f;
+                --bg-secondary: #1a1a1a;
+                --bg-tertiary: #242424;
+                --text-primary: #e5e7eb;
+                --text-secondary: #d1d5db;
+                --text-tertiary: #9ca3af;
+                --text-invert: #0f0f0f;
+                
+                --border-color: #2d3748;
+                --card-bg: #1a1a1a;
+                --input-bg: #242424;
+                --input-border: #2d3748;
+                
+                --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+                --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+                --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+                --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+                
+                /* Enhanced accent in dark mode */
+                --accent-secondary: #00d9ff;
+                --accent-primary: #818cf8;
+            }
+        }
+
         [data-theme="dark"] {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #121212;
-            --bg-tertiary: #1a1a1a;
-            --text-primary: #e8e8e8;
-            --text-secondary: #b8b8b8;
-            --text-tertiary: #888888;
-            --border-color: #2a2a2a;
-            --shadow-color: rgba(255, 255, 255, 0.05);
-            --shadow-hover: rgba(255, 255, 255, 0.08);
-            --accent-gold: #d4af37;
+            --bg-primary: #0f0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #242424;
+            --text-primary: #e5e7eb;
+            --text-secondary: #d1d5db;
+            --text-tertiary: #9ca3af;
+            --text-invert: #0f0f0f;
+            
+            --border-color: #2d3748;
             --card-bg: #1a1a1a;
+            --input-bg: #242424;
+            --input-border: #2d3748;
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
         }
-        
-        /* Apply dark mode colors */
-        [data-theme="dark"] body {
+
+        [data-theme="light"] {
+            --bg-primary: #fafafa;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f5f5f5;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-tertiary: #9ca3af;
+            --text-invert: #ffffff;
+            
+            --border-color: #e5e7eb;
+            --card-bg: #ffffff;
+            --input-bg: #ffffff;
+            --input-border: #e5e7eb;
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Global Typography & Layout */
+        body {
+            font-family: var(--font-body);
             background-color: var(--bg-primary);
             color: var(--text-primary);
+            transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                        color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        [data-theme="dark"] .s-pagewrap {
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Modern Button Styling */
+        .btn {
+            font-family: var(--font-heading);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            border-radius: 8px;
+        }
+
+        .btn--primary {
+            background: var(--accent-primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn--primary:hover {
+            background: #4f46e5;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .btn--stroke {
+            border: 2px solid var(--accent-primary);
+            color: var(--accent-primary);
+            background: transparent;
+        }
+
+        .btn--stroke:hover {
+            background: var(--accent-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Glassmorphism Card Style */
+        .card-glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 16px;
+        }
+
+        [data-theme="dark"] .card-glass {
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        /* Header & Navigation */
+        .s-header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-nav__links a {
+            color: var(--text-primary);
+            transition: color 0.3s ease;
+        }
+
+        .header-nav__links a:hover {
+            color: var(--accent-primary);
+        }
+
+        /* Sections */
+        .s-pagewrap,
+        .s-intro,
+        .s-about,
+        .s-menu,
+        .s-testimonials,
+        .s-footer {
             background-color: var(--bg-primary);
-        }
-        
-        [data-theme="dark"] .s-header {
-            background-color: var(--bg-secondary);
-            border-bottom-color: var(--border-color);
-        }
-        
-        [data-theme="dark"] .header-nav__links a {
             color: var(--text-primary);
+            transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        [data-theme="dark"] .s-intro,
-        [data-theme="dark"] .s-about,
-        [data-theme="dark"] .s-menu,
-        [data-theme="dark"] .s-testimonials,
-        [data-theme="dark"] .s-footer {
-            background-color: var(--bg-primary);
+
+        /* Input Fields */
+        input,
+        textarea {
+            background-color: var(--input-bg);
+            border: 2px solid var(--input-border);
             color: var(--text-primary);
+            border-radius: 8px;
+            font-family: var(--font-body);
+            transition: all 0.3s ease;
         }
-        
-        [data-theme="dark"] #pricing {
-            background-color: var(--bg-secondary) !important;
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            outline: none;
         }
-        
-        [data-theme="dark"] .text-display-title,
-        [data-theme="dark"] h1, [data-theme="dark"] h2, 
-        [data-theme="dark"] h3, [data-theme="dark"] h4 {
-            color: var(--text-primary);
-        }
-        
-        [data-theme="dark"] p {
-            color: var(--text-secondary);
-        }
-        
-        [data-theme="dark"] .btn--stroke {
-            border-color: var(--text-primary);
-            color: var(--text-primary);
-        }
-        
-        [data-theme="dark"] .btn--stroke:hover {
-            background-color: var(--text-primary);
-            color: var(--bg-primary);
-        }
-        
-        [data-theme="dark"] .menu-list__item {
-            border-bottom-color: var(--border-color);
-        }
-        
-        [data-theme="dark"] .testimonials-slider__slide {
-            background-color: var(--card-bg);
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-        
-        [data-theme="dark"] .s-footer {
-            border-top-color: var(--border-color);
-        }
-        
-        [data-theme="dark"] input,
-        [data-theme="dark"] textarea {
-            background-color: var(--bg-tertiary);
-            border-color: var(--border-color);
-            color: var(--text-primary);
-        }
-        
-        [data-theme="dark"] ::placeholder {
+
+        ::placeholder {
             color: var(--text-tertiary);
         }
-        
-        /* Dark mode toggle button */
+
+        /* Modern Theme Toggle Button */
         .theme-toggle {
             background: transparent;
-            border: 2px solid var(--text-primary);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            border: 2px solid var(--accent-primary);
+            border-radius: 8px;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             margin-right: 1rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 0;
+            color: var(--accent-primary);
         }
-        
+
         .theme-toggle:hover {
-            background-color: var(--accent-gold);
-            border-color: var(--accent-gold);
-            transform: rotate(180deg);
+            background: var(--accent-primary);
+            color: white;
+            transform: rotate(-180deg);
+            box-shadow: var(--shadow-md);
         }
-        
+
         .theme-toggle svg {
             width: 20px;
             height: 20px;
-            stroke: var(--text-primary);
+            stroke: currentColor;
+            stroke-width: 2;
         }
-        
-        .theme-toggle:hover svg {
-            stroke: #ffffff;
+
+        .theme-toggle .sun-icon {
+            display: block;
         }
-        
+
         .theme-toggle .moon-icon {
             display: none;
+            position: absolute;
         }
-        
+
         [data-theme="dark"] .theme-toggle .sun-icon {
             display: none;
         }
-        
+
         [data-theme="dark"] .theme-toggle .moon-icon {
             display: block;
         }
-        
-        /* Smooth transition for theme change */
-        body,
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) .theme-toggle .sun-icon {
+                display: none;
+            }
+
+            :root:not([data-theme="light"]) .theme-toggle .moon-icon {
+                display: block;
+            }
+        }
+
+        /* Pricing Cards - Modern Gradient Accents */
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Professional pricing card with gradient */
+        .pricing-card--featured {
+            background: var(--accent-gradient-1);
+            color: white;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card--featured::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: var(--accent-gradient-2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .pricing-card--featured:hover::before {
+            opacity: 0.1;
+        }
+
+        /* List items in cards */
+        .pricing-card ul li {
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            color: var(--text-secondary);
+        }
+
+        .pricing-card--featured ul li {
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Testimonial Cards */
+        .testimonials-slider__slide {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .testimonials-slider__slide:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        /* Footer */
+        .s-footer {
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Smooth theme transitions for all major elements */
         .s-pagewrap,
         .s-header,
-        .btn--stroke {
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        }
-        
-        /* Pricing cards in dark mode */
-        [data-theme="dark"] #pricing > div > div > div > div {
-            background-color: var(--card-bg) !important;
-            box-shadow: 0 4px 20px var(--shadow-color) !important;
-        }
-        
-        [data-theme="dark"] #pricing > div > div > div > div:hover {
-            box-shadow: 0 8px 30px var(--shadow-hover) !important;
-        }
-        
-        [data-theme="dark"] #pricing ul li {
-            border-bottom-color: var(--border-color) !important;
-        }
-        
-        /* Professional package stays gold in both modes */
-        #pricing > div > div:nth-child(2) > div {
-            background: linear-gradient(135deg, #d4af37 0%, #c9a02f 100%) !important;
+        body,
+        input,
+        textarea,
+        .btn,
+        .btn--stroke,
+        h1, h2, h3, h4, h5, h6,
+        p {
+            transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                        color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                        border-color 0.3s ease;
         }
     </style>
 
