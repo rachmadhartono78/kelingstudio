@@ -53,7 +53,7 @@
                     </ul>
 
                     <div class="header-contact">
-                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                             <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
@@ -91,86 +91,147 @@
         <!-- Portfolio Grid -->
         <section class="s-portfolio target-section" style="padding-top: 4rem;">
             <div class="container">
-                <!-- Filter Buttons (Placeholder functionality for now) -->
-                <div class="row" style="margin-bottom: 3rem;">
+                <!-- Filter Buttons -->
+                <div class="row" style="margin-bottom: 4rem;">
                     <div class="column xl-12 u-text-center">
                         <div class="portfolio-filter">
-                            <button class="btn btn--stroke active" style="margin: 0.5rem;">All</button>
-                            <button class="btn btn--stroke" style="margin: 0.5rem;">Web Development</button>
-                            <button class="btn btn--stroke" style="margin: 0.5rem;">Branding</button>
-                            <button class="btn btn--stroke" style="margin: 0.5rem;">Mobile Apps</button>
+                            <button type="button" class="btn btn--stroke active" data-filter="all">All Projects</button>
+                            <button type="button" class="btn btn--stroke" data-filter="web-apps">Web Applications</button>
+                            <button type="button" class="btn btn--stroke" data-filter="corporate">Corporate Profiles</button>
+                            <button type="button" class="btn btn--stroke" data-filter="travel-comm">Travel &amp; Communities</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <!-- Project 1 -->
-                    <div class="column xl-6 lg-6 md-12" style="margin-bottom: 3rem;">
-                        <a href="#" class="portfolio-item-link">
-                            <div class="portfolio-item"
-                                style="border-radius: 12px; overflow: hidden; background: var(--bg-secondary);">
-                                <div
-                                    style="height: 300px; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); display: flex; align-items: center; justify-content: center;">
-                                    <!-- Placeholder for Project Image -->
-                                    <span style="color: white; opacity: 0.5;">Project Thumbnail</span>
-                                </div>
-                                <div style="padding: 2rem;">
-                                    <h3 style="margin-bottom: 0.5rem;">E-Commerce Platform</h3>
-                                    <p style="color: var(--text-secondary);">Web Development • React</p>
-                                </div>
+                <div class="portfolio-grid">
+                    <!-- Project 1: Cashflow.in -->
+                    <div class="portfolio-card-wrapper" data-category="web-apps" id="project-cashflow">
+                        <div class="portfolio-card">
+                            <div class="portfolio-card__img-wrapper">
+                                <img src="images/cashflow_mockup.png" alt="Cashflow.in Personal Finance App" class="portfolio-card__img" loading="lazy">
                             </div>
-                        </a>
+                            <div class="portfolio-card__content">
+                                <div class="portfolio-card__tags">
+                                    <span class="portfolio-card__tag">Laravel</span>
+                                    <span class="portfolio-card__tag">Alpine.js</span>
+                                    <span class="portfolio-card__tag">PWA</span>
+                                    <span class="portfolio-card__tag">Finance</span>
+                                </div>
+                                <h3 class="portfolio-card__title">Cashflow.in App</h3>
+                                <p class="portfolio-card__desc">A comprehensive personal wealth tracking app allowing users to monitor savings rates, configure budgets with limit alerts, track assets across wallets (bank, e-wallet, cash), and output PDF ledger reports.</p>
+                                <a href="https://cashflowinapp.net/" target="_blank" class="portfolio-card__link">
+                                    Visit Live App <span>&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Project 2 -->
-                    <div class="column xl-6 lg-6 md-12" style="margin-bottom: 3rem;">
-                        <a href="#" class="portfolio-item-link">
-                            <div class="portfolio-item"
-                                style="border-radius: 12px; overflow: hidden; background: var(--bg-secondary);">
-                                <div
-                                    style="height: 300px; background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%); display: flex; align-items: center; justify-content: center;">
-                                    <span style="color: white; opacity: 0.5;">Project Thumbnail</span>
-                                </div>
-                                <div style="padding: 2rem;">
-                                    <h3 style="margin-bottom: 0.5rem;">Fintech App</h3>
-                                    <p style="color: var(--text-secondary);">Mobile App • Flutter</p>
-                                </div>
+                    <!-- Project 2: Impegno.id -->
+                    <div class="portfolio-card-wrapper" data-category="travel-comm" id="project-impegno">
+                        <div class="portfolio-card">
+                            <div class="portfolio-card__img-wrapper">
+                                <img src="images/impegno_mockup.png" alt="Impegno.id Tour & Rental" class="portfolio-card__img" loading="lazy">
                             </div>
-                        </a>
+                            <div class="portfolio-card__content">
+                                <div class="portfolio-card__tags">
+                                    <span class="portfolio-card__tag">HTML5</span>
+                                    <span class="portfolio-card__tag">Modern CSS</span>
+                                    <span class="portfolio-card__tag">WhatsApp API</span>
+                                    <span class="portfolio-card__tag">Travel</span>
+                                </div>
+                                <h3 class="portfolio-card__title">Impegno.id Rental &amp; Tours</h3>
+                                <p class="portfolio-card__desc">A booking platform and vehicle rental app for Jogja tour guides (Jeep Merapi, Jalur Luna Maya, Kulon Progo) and scooter rentals (Vespa, Avanza, Innova) with direct WhatsApp API triggers.</p>
+                                <a href="https://impegno.web.id/" target="_blank" class="portfolio-card__link">
+                                    Visit Live Site <span>&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Project 3 -->
-                    <div class="column xl-6 lg-6 md-12" style="margin-bottom: 3rem;">
-                        <a href="#" class="portfolio-item-link">
-                            <div class="portfolio-item"
-                                style="border-radius: 12px; overflow: hidden; background: var(--bg-secondary);">
-                                <div
-                                    style="height: 300px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); display: flex; align-items: center; justify-content: center;">
-                                    <span style="color: white; opacity: 0.5;">Project Thumbnail</span>
-                                </div>
-                                <div style="padding: 2rem;">
-                                    <h3 style="margin-bottom: 0.5rem;">Corporate Rebrand</h3>
-                                    <p style="color: var(--text-secondary);">Branding • Identity</p>
-                                </div>
+                    <!-- Project 3: PT Edo Mandiri Pratama -->
+                    <div class="portfolio-card-wrapper" data-category="web-apps" id="project-edomandiri">
+                        <div class="portfolio-card">
+                            <div class="portfolio-card__img-wrapper">
+                                <img src="images/edomandiri_mockup.png" alt="Edo Mandiri Pratama Portal" class="portfolio-card__img" loading="lazy">
                             </div>
-                        </a>
+                            <div class="portfolio-card__content">
+                                <div class="portfolio-card__tags">
+                                    <span class="portfolio-card__tag">React SPA</span>
+                                    <span class="portfolio-card__tag">Vite</span>
+                                    <span class="portfolio-card__tag">TailwindCSS</span>
+                                    <span class="portfolio-card__tag">B2B Portal</span>
+                                </div>
+                                <h3 class="portfolio-card__title">Edo Mandiri Invoicing App</h3>
+                                <p class="portfolio-card__desc">An enterprise-grade B2B invoicing, tracking, and logistics procurement dashboard. Specially designed for managing food box delivery systems and large-scale operational supplies.</p>
+                                <a href="https://edomandiripratama.web.id/" target="_blank" class="portfolio-card__link">
+                                    Visit Live App <span>&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Project 4 -->
-                    <div class="column xl-6 lg-6 md-12" style="margin-bottom: 3rem;">
-                        <a href="#" class="portfolio-item-link">
-                            <div class="portfolio-item"
-                                style="border-radius: 12px; overflow: hidden; background: var(--bg-secondary);">
-                                <div
-                                    style="height: 300px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); display: flex; align-items: center; justify-content: center;">
-                                    <span style="color: white; opacity: 0.5;">Project Thumbnail</span>
-                                </div>
-                                <div style="padding: 2rem;">
-                                    <h3 style="margin-bottom: 0.5rem;">SaaS Dashboard</h3>
-                                    <p style="color: var(--text-secondary);">UI/UX Design • Figma</p>
-                                </div>
+                    <!-- Project 4: Setyowati & Partners -->
+                    <div class="portfolio-card-wrapper" data-category="corporate" id="project-setyowati">
+                        <div class="portfolio-card">
+                            <div class="portfolio-card__img-wrapper">
+                                <img src="images/setyowati_mockup.png" alt="Setyowati & Partners Law Firm" class="portfolio-card__img" loading="lazy">
                             </div>
-                        </a>
+                            <div class="portfolio-card__content">
+                                <div class="portfolio-card__tags">
+                                    <span class="portfolio-card__tag">Bootstrap</span>
+                                    <span class="portfolio-card__tag">jQuery</span>
+                                    <span class="portfolio-card__tag">Google Maps API</span>
+                                    <span class="portfolio-card__tag">Law Firm</span>
+                                </div>
+                                <h3 class="portfolio-card__title">Setyowati &amp; Partners</h3>
+                                <p class="portfolio-card__desc">An elegant and professional website for Setyowati &amp; Partners Law Firm in Wedomartani, Sleman. Showcases corporate counsel, civil litigation, estate planning, and booking forms.</p>
+                                <a href="https://setyowati.web.id/" target="_blank" class="portfolio-card__link">
+                                    Visit Live Site <span>&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Berkendara Ria -->
+                    <div class="portfolio-card-wrapper" data-category="travel-comm" id="project-berkendararia">
+                        <div class="portfolio-card">
+                            <div class="portfolio-card__img-wrapper">
+                                <img src="images/berkendararia_mockup.png" alt="Berkendara Ria Community Portal" class="portfolio-card__img" loading="lazy">
+                            </div>
+                            <div class="portfolio-card__content">
+                                <div class="portfolio-card__tags">
+                                    <span class="portfolio-card__tag">HTML5</span>
+                                    <span class="portfolio-card__tag">Custom CSS</span>
+                                    <span class="portfolio-card__tag">Rider Club</span>
+                                </div>
+                                <h3 class="portfolio-card__title">Berkendara Ria Club</h3>
+                                <p class="portfolio-card__desc">An interactive community portal for Yogyakarta's motorbike enthusiasts. Features active sunmori schedule planners, group touring maps, photo archives, and registration support.</p>
+                                <a href="https://berkendararia.web.id/" target="_blank" class="portfolio-card__link">
+                                    Visit Live Site <span>&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: SD N 1 Bagan Nibung -->
+                    <div class="portfolio-card-wrapper" data-category="corporate" id="project-bagannibung">
+                        <div class="portfolio-card">
+                            <div class="portfolio-card__img-wrapper">
+                                <img src="images/bagannibung_mockup.png" alt="SD N 1 Bagan Nibung Website" class="portfolio-card__img" loading="lazy">
+                            </div>
+                            <div class="portfolio-card__content">
+                                <div class="portfolio-card__tags">
+                                    <span class="portfolio-card__tag">HTML5/CSS3</span>
+                                    <span class="portfolio-card__tag">CMS Profile</span>
+                                    <span class="portfolio-card__tag">Education</span>
+                                </div>
+                                <h3 class="portfolio-card__title">SD N 1 Bagan Nibung</h3>
+                                <p class="portfolio-card__desc">A clean educational portal designed to handle elementary school profile publishing, event notices, curriculum listings, and contact info, facilitating better communications.</p>
+                                <a href="#" onclick="alert('This portal is hosted on a secure intranet. Please contact Keling Studio admin for a demo.'); return false;" class="portfolio-card__link">
+                                    Intranet Demo <span>&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
