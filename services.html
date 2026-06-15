@@ -40,7 +40,19 @@
                 <div class="s-header__block">
                     <div class="header-logo">
                         <a class="logo" href="index.html">
-                            <img src="images/logo.svg" alt="Keling Studio">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+                                <g>
+                                    <path d="M22 15 L22 45" class="logo-accent-line" />
+                                    <path d="M23 30 L40 30" class="logo-accent-line" />
+                                    <path d="M38 16 L23 30 L38 44" class="logo-primary-line" />
+                                    <circle cx="22" cy="15" r="2.5" class="logo-accent-dot" />
+                                    <circle cx="22" cy="45" r="2.5" class="logo-accent-dot" />
+                                    <circle cx="38" cy="16" r="2" class="logo-primary-dot" />
+                                    <circle cx="38" cy="44" r="2" class="logo-primary-dot" />
+                                </g>
+                                <text x="56" y="32" class="logo-text-primary">KELING</text>
+                                <text x="56" y="46" class="logo-text-secondary">STUDIO</text>
+                            </svg>
                         </a>
                     </div>
                     <a class="header-menu-toggle" href="#0"><span>Menu</span></a>
@@ -110,17 +122,17 @@
                             <ul class="tab-nav__list">
                                 <li class="active">
                                     <a href="#tab-web-development">
-                                        <span>💻 Web Development</span>
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; display: inline-block; vertical-align: text-bottom; margin-right: 8px;"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg> Web Development</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#tab-branding">
-                                        <span>🎨 Branding & Design</span>
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; display: inline-block; vertical-align: text-bottom; margin-right: 8px;"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.34776 19.4929 6 18.9 6 18.2V17C6 14.2386 8.23858 12 11 12H13C14.1046 12 15 11.1046 15 10C15 8.89543 14.1046 8 13 8H12C9.79086 8 8 6.20914 8 4C8 3.51862 8.08507 3.05713 8.24151 2.63152C4.55139 3.96344 2 7.64936 2 12C2 17.5228 6.47715 22 12 22Z"></path></svg> Branding & Design</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#tab-digital-marketing">
-                                        <span>📱 Digital Marketing</span>
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; display: inline-block; vertical-align: text-bottom; margin-right: 8px;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg> Digital Marketing</span>
                                     </a>
                                 </li>
                             </ul>
@@ -219,18 +231,15 @@
             <div class="row">
                 <!-- Starter -->
                 <div class="column xl-4 lg-6 md-12" style="margin-bottom: 2rem;">
-                    <div class="pricing-card" style="padding: 3rem 2rem; height: 100%;">
+                    <div class="pricing-card">
                         <h3>Starter</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Mulai online
-                            dengan cepat.</p>
-                        <div
-                            style="font-size: 2.5rem; font-weight: bold; margin: 1rem 0; color: var(--accent-secondary);">
-                            Rp1.200k</div>
-                        <ul class="pricing-list" style="margin-bottom: 2rem;">
-                            <li>✓ Landing Page Responsif</li>
-                            <li>✓ Basic SEO Setup</li>
-                            <li>✓ 1 Bulan Support Gratis</li>
-                            <li>✓ Revisi Minor 2x</li>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Mulai online dengan cepat.</p>
+                        <div class="price">Rp1.200k</div>
+                        <ul class="pricing-list">
+                            <li>Landing Page Responsif</li>
+                            <li>Basic SEO Setup</li>
+                            <li>1 Bulan Support Gratis</li>
+                            <li>Revisi Minor 2x</li>
                         </ul>
                         <a href="https://wa.me/6285142965211?text=Halo,%20saya%20tertarik%20dengan%20paket%20Starter"
                             class="btn btn--stroke full-width">Mulai Sekarang</a>
@@ -239,41 +248,33 @@
 
                 <!-- Professional -->
                 <div class="column xl-4 lg-6 md-12" style="margin-bottom: 2rem;">
-                    <div class="pricing-card pricing-card--featured"
-                        style="padding: 3rem 2rem; height: 100%; border: 2px solid var(--accent-secondary); position: relative;">
-                        <div
-                            style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent-secondary); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">
-                            BEST VALUE</div>
+                    <div class="pricing-card pricing-card--featured">
+                        <div class="pricing-badge">Best Value</div>
                         <h3>Professional</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Kontrol penuh
-                            dengan CMS.</p>
-                        <div style="font-size: 2.5rem; font-weight: bold; margin: 1rem 0;">Rp2.100k</div>
-                        <ul class="pricing-list" style="margin-bottom: 2rem;">
-                            <li>✓ Full Website (5 Halaman)</li>
-                            <li>✓ CMS (Admin Dashboard)</li>
-                            <li>✓ Advanced SEO & Analytics</li>
-                            <li>✓ 3 Bulan Support Gratis</li>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Kontrol penuh dengan CMS.</p>
+                        <div class="price">Rp2.100k</div>
+                        <ul class="pricing-list">
+                            <li>Full Website (5 Halaman)</li>
+                            <li>CMS (Admin Dashboard)</li>
+                            <li>Advanced SEO & Analytics</li>
+                            <li>3 Bulan Support Gratis</li>
                         </ul>
                         <a href="https://wa.me/6285142965211?text=Halo,%20saya%20tertarik%20dengan%20paket%20Professional"
-                            class="btn btn--primary full-width"
-                            style="background: var(--accent-secondary); color: white;">Tingkatkan Bisnis Anda</a>
+                            class="btn btn--primary full-width">Tingkatkan Bisnis Anda</a>
                     </div>
                 </div>
 
                 <!-- Enterprise -->
                 <div class="column xl-4 lg-12 md-12" style="margin-bottom: 2rem;">
-                    <div class="pricing-card" style="padding: 3rem 2rem; height: 100%;">
+                    <div class="pricing-card">
                         <h3>Enterprise</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Solusi kustom
-                            kompleks.</p>
-                        <div
-                            style="font-size: 2.5rem; font-weight: bold; margin: 1rem 0; color: var(--accent-secondary);">
-                            Custom</div>
-                        <ul class="pricing-list" style="margin-bottom: 2rem;">
-                            <li>✓ Web Web Application Kustom</li>
-                            <li>✓ Integrasi API & Database</li>
-                            <li>✓ Priority Support 24/7</li>
-                            <li>✓ Konsultasi Mendalam</li>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Solusi kustom kompleks.</p>
+                        <div class="price">Custom</div>
+                        <ul class="pricing-list">
+                            <li>Web Application Kustom</li>
+                            <li>Integrasi API & Database</li>
+                            <li>Priority Support 24/7</li>
+                            <li>Konsultasi Mendalam</li>
                         </ul>
                         <a href="https://wa.me/6285142965211?text=Halo,%20saya%20ingin%20konsultasi%20Enterprise"
                             class="btn btn--primary full-width">Hubungi Tim Kami</a>
