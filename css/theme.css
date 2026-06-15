@@ -750,4 +750,90 @@ textarea:focus {
     transform: scale(1.05);
     box-shadow: var(--shadow-lg);
 }
+
+/* Modern Hero Section */
+.modern-hero {
+    display: grid !important;
+    grid-template-columns: 1.15fr 0.85fr !important;
+    gap: 5rem !important;
+    align-items: center !important;
+    padding-top: 16rem !important;
+    padding-bottom: 6rem !important;
+    min-height: 85vh !important;
+    position: relative !important;
+}
+
+.hero-left-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.hero-left-col .intro-header {
+    padding-top: 0 !important;
+    margin-bottom: 1.5rem;
+}
+
+.hero-left-col .intro-header__overline {
+    margin-bottom: 1rem;
+    padding-left: 0;
+}
+
+.hero-left-col .intro-header__overline::before {
+    display: none; /* Hide template line decoration */
+}
+
+.hero-right-col {
+    position: relative;
+    width: 100%;
+}
+
+.hero-right-col .hero-visual {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    display: block !important;
+    perspective: 1000px;
+}
+
+.hero-right-col .hero-visual__img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 16px !important;
+    box-shadow: var(--shadow-xl) !important;
+    transform: rotateY(-6deg) rotateX(6deg) rotateZ(-2deg);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease !important;
+}
+
+.hero-right-col .hero-visual:hover .hero-visual__img {
+    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+    box-shadow: var(--shadow-2xl) !important;
+}
+
+/* Responsive queries for modern hero */
+@media screen and (max-width: 1000px) {
+    .modern-hero {
+        grid-template-columns: 1fr !important;
+        gap: 4rem !important;
+        padding-top: 12rem !important;
+        text-align: center !important;
+    }
+    .hero-left-col {
+        text-align: center;
+        align-items: center;
+    }
+    .hero-left-col .intro-header__overline {
+        justify-content: center;
+    }
+    .hero-right-col .hero-visual {
+        max-width: 500px;
+        margin: 0 auto !important;
+    }
+    .hero-right-col .hero-visual__img {
+        transform: none !important;
+    }
+}
+
 
